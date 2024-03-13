@@ -33,8 +33,12 @@ class DisciplinaService {
 
     const disciplina = disciplinaPesquisada[0];
     const aluno = alunoPesquisado[0];
-    // console.log(disciplina.nome + "\n" + aluno.nome);
+
     disciplina.alunos.push(aluno);
-    console.log(disciplina.alunos);
+    // console.log(disciplina.alunos);
+  }
+  listarAlunos(codigo) {
+    const disciplina = this.pesquisarPorCodigo(codigo)[0];
+    return disciplina.alunos;
   }
 }

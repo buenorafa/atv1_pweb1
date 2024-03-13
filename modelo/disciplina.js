@@ -10,7 +10,6 @@ class Disciplina {
   get nome() {
     return this._nome;
   }
-
   set nome(novoNome) {
     this._nome = novoNome;
   }
