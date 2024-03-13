@@ -1,7 +1,7 @@
 class DisciplinaControlador {
   constructor(controladorAluno) {
-    // const alunoService = controladorAluno.servico;
-    this.servico = new DisciplinaService();
+    const alunoService = controladorAluno.servico;
+    this.servico = new DisciplinaService(alunoService);
   }
   inserir() {
     const codigoElemento = document.querySelector("#codigo");
@@ -25,5 +25,11 @@ class DisciplinaControlador {
     const disciplinaElemento = document.createElement("li");
     disciplinaElemento.textContent = `Código: ${disciplina.codigo} - Nome: ${disciplina.nome}`;
     elementoDestino.appendChild(disciplinaElemento);
+  }
+
+  inserirAlunoEmDisciplina() {
+    const codigoInserir = document.querySelector("#inserir_codigo").value;
+    const matriculaInserir = document.querySelector("#inserir_matricula").value;
+    this.servico.inserirAlunoNaDisciplina(codigoInserir, matriculaInserir);
   }
 }

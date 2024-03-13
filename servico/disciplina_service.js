@@ -1,7 +1,7 @@
 class DisciplinaService {
-  constructor() {
+  constructor(alunoService) {
     this.repositorio = new DisciplinaRepositorio();
-    // this.alunoService = alunoService;
+    this.alunoService = alunoService;
   }
   inserir(codigo, nome) {
     const disciplinaPesquisada = this.pesquisarPorCodigo(codigo);
@@ -30,8 +30,11 @@ class DisciplinaService {
     if (alunoPesquisado.length < 1) {
       throw new Error("Aluno não existente!");
     }
+
     const disciplina = disciplinaPesquisada[0];
     const aluno = alunoPesquisado[0];
-    disciplina.push(aluno);
+    // console.log(disciplina.nome + "\n" + aluno.nome);
+    disciplina.alunos.push(aluno);
+    console.log(disciplina.alunos);
   }
 }
